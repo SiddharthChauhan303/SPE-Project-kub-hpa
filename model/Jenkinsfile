@@ -39,6 +39,7 @@ pipeline {
         stage("Build Docker Image"){
                     steps{
                         sh "cd model"
+                        sh "ls"
                         sh "docker build -t siddharth303/model_jenkins:latest ."
                     }
                 }
