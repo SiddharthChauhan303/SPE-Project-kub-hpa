@@ -7,10 +7,7 @@ pipeline {
     stages {
         stage("Stage 1: Git Clone") {
             steps {
-                // sh "rm -r SPE-FInal-Project"
-                // sh "git clone https://github.com/Kushal7551/SPE-FInal-Project.git"
                 git credentialsId: 'GitHubSid', url: 'https://github.com/SiddharthChauhan303/SPE-Project-kub-hpa.git', branch: 'main'
-                // sh "ls"
             }
         }
         stage('Initialize') {
@@ -37,6 +34,18 @@ pipeline {
                     // Run model evaluation script
                     sh ". venv/bin/activate && pytest model/test_model.py"
                 }
+            }
+        }
+        stage("Build Docker Image"){
+                    steps{
+                        sh "docker  build -t siddharth303/model_jenkins:latest ."
+                    }
+                }
+
+        stage("Push Docker Image to Dockerhub"){
+            steps{
+                sh 'echo $DOCKERHUB_CRED_PSW | /usr/local/bin/docker login -u $DOCKERHUB_CRED_USR --password-stdin'
+                sh "docker push siddharth303/model_jenkins:latest"
             }
         }
     }
