@@ -8,7 +8,7 @@ class StockTradingEnv(Env):
         super(StockTradingEnv, self).__init__()
         self.data = data
         self.current_step = 0
-        self.cash = 100000  # Starting cash
+        self.cash = 100000  # Starting cash 
         self.stock_held = 0
         self.transaction_cost_pct = 0.001  # 0.1% transaction cost
         self.numeric_data = self.data.drop(columns=['Date', 'Symbol', 'Series'], errors='ignore')

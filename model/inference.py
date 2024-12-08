@@ -12,7 +12,7 @@ def evaluate_and_log(env, agent, weights_path, output_csv_path):
     state = np.reshape(state, [1, agent.state_size])
 
     done = False
-    while not done:
+    while not done: 
         action = agent.act(state)
 
         current_step = env.current_step

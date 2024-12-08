@@ -6,7 +6,7 @@ import subprocess
 app = Flask(__name__)
 
 @app.route('/predict', methods=['POST','GET'])
-def predict():
+def predict(): 
     data = request.json
     input_file = data.get('input_file')
     print(input_file)

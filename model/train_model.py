@@ -11,7 +11,7 @@ def train_model(data_path, weights_output_path, episodes=5):
     env = StockTradingEnv(data)
     state_size = env.observation_space.shape[0]
     action_size = env.action_space.shape[0]
-    agent = DQNAgent(state_size, action_size)
+    agent = DQNAgent(state_size, action_size) 
     
     # Fine-tuning: Load existing weights if available
     try:
