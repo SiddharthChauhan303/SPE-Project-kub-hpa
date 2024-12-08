@@ -1,16 +1,37 @@
-- name: Deploying with Kubernetes
+# - name: Deploying with Kubernetes
+#   hosts: all
+#   tasks:
+#     - name: Show ansible_user
+#       debug:
+#         msg: "The ansible_user is {{ ansible_user }}"
+#     - name: Add directory to Git's safe list
+#       ansible.builtin.command:
+#         cmd: git config --global --add safe.directory /tmp/SPE-Project-kub-hpa
+#     - name: Clone the repository
+#       git:
+#         repo: https://github.com/SiddharthChauhan303/SPE-Project-kub-hpa.git
+#         dest: /tmp/SPE-Project-kub-hpa
+- name: Deploying Kubernetes Resources
   hosts: all
+  become: true
   tasks:
-    - name: Show ansible_user
+    - name: Install required Python packages
+      pip:
+        name:
+          - openshift
+          - pyyaml
+          - kubernetes
+
+    - name: Apply all Kubernetes manifests in the deployment directory
+      shell: |
+        kubectl apply -f {{ item }}
+      with_fileglob:
+        - "./deployment/*.yaml"
+      register: kubectl_output
+
+    - name: Display kubectl output
       debug:
-        msg: "The ansible_user is {{ ansible_user }}"
-    - name: Add directory to Git's safe list
-      ansible.builtin.command:
-        cmd: git config --global --add safe.directory /tmp/SPE-Project-kub-hpa
-    - name: Clone the repository
-      git:
-        repo: https://github.com/SiddharthChauhan303/SPE-Project-kub-hpa.git
-        dest: /tmp/SPE-Project-kub-hpa
-      
-    - name: Apply Kubernetes manifests
-      command: kubectl get pods
+        msg: "{{ item.stdout }}"
+      loop: "{{ kubectl_output.results }}"  
+    # - name: Apply Kubernetes manifests
+    #   command: kubectl get pods
