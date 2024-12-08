@@ -2,8 +2,7 @@ pipeline {
     environment {
         DOCKERHUB_CRED = credentials("DockerSid")
         PORT = "8000" 
-        // MINIKUBE_HOME = '/minikube'
-        KUBECONFIG = credentials("K8sAuth")
+        MINIKUBE_HOME = '/home/jenkins/.minikube'
     }
     agent any
     tools {nodejs "NODEJS"} 
@@ -13,15 +12,18 @@ pipeline {
                 git credentialsId: 'GitHubSid', url: 'https://github.com/SiddharthChauhan303/SPE-Project-kub-hpa.git', branch: 'main'
             }
         }
-        stage("Stage 8: Ansible") {
+        stage("Stage 8: Ansible"){
             steps {
-                withCredentials([file(credentialsId: 'K8sAuth', variable: 'KUBECONFIG')]) {
-                    sh '''
-                        export KUBECONFIG=${KUBECONFIG}
-                        kubectl apply -f deployment
-                    '''
-                }
+                // sh '''
+                // sudo ansible-playbook -i inventory-k8 playbook-k8-new.yaml
+                // '''
+                sh '''
+                    minikube kubectl -- config use-context minikube
+                    kubectl apply -f deployment
+                '''
+
             }
+
         }
     }
 }
