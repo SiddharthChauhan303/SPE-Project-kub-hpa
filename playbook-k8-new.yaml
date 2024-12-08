@@ -14,4 +14,4 @@
       
 
     - name: Apply Kubernetes manifests
-      command: kubectl apply -f /tmp/SPE-Project-kub-hpa/deployment
+      command: kubectl apply -f /tmp/SPE-Project-kub-hpa/deployment --validate=false
