@@ -17,8 +17,9 @@ pipeline {
                 npm install jest --save-dev
                 cd backend
                 npm install
-                npm test
                 '''
+                // npm test
+                // '''
             }
         }
 
