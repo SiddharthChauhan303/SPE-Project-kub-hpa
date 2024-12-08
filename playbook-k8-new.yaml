@@ -12,4 +12,4 @@
         repo: https://github.com/SiddharthChauhan303/SPE-Project-kub-hpa.git
         dest: /tmp/SPE-Project-kub-hpa
     - name: Apply Kubernetes manifests
-      command: kubectl auth can -i apply -f /tmp/SPE-Project-kub-hpa/deployment
+      command: sudo minikube status
