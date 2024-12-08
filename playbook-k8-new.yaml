@@ -4,7 +4,9 @@
     - name: Show ansible_user
       debug:
         msg: "The ansible_user is {{ ansible_user }}"
-
+    - name: Add directory to Git's safe list
+      ansible.builtin.command:
+        cmd: git config --global --add safe.directory /tmp/SPE-Project-kub-hpa
     - name: Clone the repository
       git:
         repo: https://github.com/SiddharthChauhan303/SPE-Project-kub-hpa.git
