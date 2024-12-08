@@ -18,7 +18,7 @@ pipeline {
                 // sudo ansible-playbook -i inventory-k8 playbook-k8-new.yaml
                 // '''
                 sh '''
-                    minikube kubectl -- config use-context minikube
+                    sudo minikube kubectl -- config use-context minikube
                     kubectl apply -f deployment
                 '''
 
