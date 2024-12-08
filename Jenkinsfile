@@ -17,7 +17,7 @@ pipeline {
                 sh '''
                 chmod 777 inventory-k8
                 chmod 777 playbook-k8-new.yaml
-                ansible-playbook -i inventory-k8 playbook-k8-new.yaml
+                sudo ansible-playbook -i inventory-k8 playbook-k8-new.yaml
                 '''
             }
 
