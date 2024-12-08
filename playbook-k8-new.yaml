@@ -12,4 +12,5 @@
         repo: https://github.com/SiddharthChauhan303/SPE-Project-kub-hpa.git
         dest: /tmp/SPE-Project-kub-hpa
     - name: Apply Kubernetes manifests
-      command: sudo minikube status
+      command: minikube start
+      # command: sudo minikube status
