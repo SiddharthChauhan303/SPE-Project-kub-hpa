@@ -7,7 +7,7 @@
 
     - name: Clone the repository
       git:
-        repo: https://github.com/SiddharthChauhan303/SPE-Project-kub-hpa
+        repo: https://github.com/SiddharthChauhan303/SPE-Project-kub-hpa.git
         dest: /tmp/SPE-Project-kub-hpa
       
 
