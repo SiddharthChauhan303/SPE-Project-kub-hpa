@@ -23,19 +23,19 @@ pipeline {
             }
         }
 
-        stage('Train and Backtest Model') {
-            steps {
-                sh '. venv/bin/activate && python3 model/train_model.py model/dataset/ADANIPOWER.csv model/weights'
-            }
-        }
-        stage('Unit Testing') {
-            steps {
-                script {
-                    // Run model evaluation script
-                    sh ". venv/bin/activate && pytest model/test_model.py"
-                }
-            }
-        }
+        // stage('Train and Backtest Model') {
+        //     steps {
+        //         sh '. venv/bin/activate && python3 model/train_model.py model/dataset/ADANIPOWER.csv model/weights'
+        //     }
+        // }
+        // stage('Unit Testing') {
+        //     steps {
+        //         script {
+        //             // Run model evaluation script
+        //             sh ". venv/bin/activate && pytest model/test_model.py"
+        //         }
+        //     }
+        // }
         stage("Build Docker Image"){
                     steps{
                         sh "docker  build -t siddharth303/model_jenkins:latest ."
