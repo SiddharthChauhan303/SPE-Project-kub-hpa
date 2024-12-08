@@ -2,26 +2,24 @@ pipeline {
     environment {
         DOCKERHUB_CRED = credentials("DockerSid")
         PORT = "8000" 
-        // MINIKUBE_HOME = '/home/jenkins/.minikube'
+        VAULT_PASS = credentials("ansible_vault_pass")
     }
     agent any
     tools {nodejs "NODEJS"} 
     stages {
-        stage("Stage 1: Git Clone") {
+        stage("Git Clone") {
             steps {
                 git credentialsId: 'GitHubSid', url: 'https://github.com/SiddharthChauhan303/SPE-Project-kub-hpa.git', branch: 'main'
             }
         }
-        stage("Stage 8: Ansible"){
+        stage("Ansible-Kubernetes"){
             steps {
                 sh '''
-                sudo ansible-playbook -i inventory-k8 playbook-k8-new.yaml 
+                echo "$VAULT_PASS" > /tmp/vault_pass.txt
+                chmod 600 /tmp/vault_pass.txt
+                sudo ansible-playbook -i inventory-k8 --vault-password-file /tmp/vault_pass.txt playbook-k8-new.yaml
+                rm -f /tmp/vault_pass.txt
                 '''
-                // sh '''
-                //     sudo minikube kubectl -- config use-context minikube
-                //     kubectl apply -f deployment --validate=false
-                // '''
-
             }
 
         }
