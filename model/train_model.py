@@ -37,7 +37,7 @@ def train_model(data_path, weights_output_path, episodes=5):
         print(f"Episode {e + 1}/{episodes} complete.")
 
     # Save fine-tuned weights
-    agent.save_weights("/app/weights/dqn_final.weights.h5")
+    agent.save_weights("/weights/dqn_final.weights.h5")
     print(f"Weights saved to {weights_output_path}")
 
 if __name__ == "__main__":
