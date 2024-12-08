@@ -15,7 +15,7 @@
     # - name: Delete
       # command: export KUBECONFIG=~/.kube/config
     - name: Apply Kubernetes Deployment
-        ansible.builtin.command:
-          cmd: kubectl apply -f /tmp/SPE/deployment
+      ansible.builtin.command:
+        cmd: kubectl apply -f /tmp/SPE/deployment
     # - name: 
       # command: sudo minikube status
