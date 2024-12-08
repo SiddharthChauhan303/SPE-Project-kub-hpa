@@ -13,7 +13,7 @@ const app = express();
 const PORT = 3000;
  
 const corsOptions = { 
-    origin:"http://192.168.49.2:30008",
+    origin:"http://192.168.58.2:30008",
     credentials:true
 }
 app.use(cors(corsOptions));
@@ -37,11 +37,11 @@ app.post('/read-csv', async (req, res) => {
 
 
     console.log(inputFilePath);
-    // const response = await axios.post(`http://192.168.49.2:${MODEL_PORT}/predict`, {
-        const response = await axios.post(`http://192.168.49.2:30009/predict`, {
+    // const response = await axios.post(`http://192.168.58.2:${MODEL_PORT}/predict`, {
+        const response = await axios.post(`http://192.168.58.2:30009/predict`, {
         input_file: inputFilePath
     });
-//     const response = await axios.post('http://192.168.49.2:30009/predict', {
+//     const response = await axios.post('http://192.168.58.2:30009/predict', {
 //     input_file: inputFilePath
 // }, {
 //     headers: {
@@ -165,7 +165,7 @@ app.post('/sample', async (req, res) => {
 if (require.main === module) {
     // Only start the server if this file is executed directly
     app.listen(PORT, () => {
-        console.log(`Server is running on http://192.168.49.2:${PORT}`);
+        console.log(`Server is running on http://192.168.58.2:${PORT}`);
     });
 }
 

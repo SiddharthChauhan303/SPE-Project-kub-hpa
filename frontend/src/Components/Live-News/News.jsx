@@ -11,7 +11,7 @@ const News = () => {
 
       // Poll the backend for sentiment data
       while (!dataAvailable) {
-        const response = await fetch('http://192.168.49.2:30007/sample', {
+        const response = await fetch('http://192.168.58.2:30007/sample', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

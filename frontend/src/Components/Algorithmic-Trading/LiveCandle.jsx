@@ -29,7 +29,7 @@ const LiveCandle = () => {
   useEffect(() => {
     const fetchCSVData = async () => {
       try {
-        const response = await fetch(`http://192.168.49.2:30007/read-csv`, {
+        const response = await fetch(`http://192.168.58.2:30007/read-csv`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
