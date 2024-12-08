@@ -1,6 +1,0 @@
-pandas
-numpy
-stable-baselines3
-gym
-pytest
-shimmy
