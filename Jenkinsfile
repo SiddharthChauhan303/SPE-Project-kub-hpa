@@ -19,7 +19,7 @@ pipeline {
                 // '''
                 sh '''
                     sudo minikube kubectl -- config use-context minikube
-                    kubectl apply -f deployment
+                    kubectl apply -f deployment --validate=false
                 '''
 
             }
