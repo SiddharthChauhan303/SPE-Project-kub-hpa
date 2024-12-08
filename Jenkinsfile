@@ -2,7 +2,7 @@ pipeline {
     environment {
         DOCKERHUB_CRED = credentials("DockerSid")
         PORT = "8000" 
-        MINIKUBE_HOME = '/home/jenkins/.minikube'
+        MINIKUBE_HOME = '~/.minikube'
     }
     agent any
     tools {nodejs "NODEJS"} 
