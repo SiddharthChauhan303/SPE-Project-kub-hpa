@@ -20,6 +20,6 @@ spec:
             - containerPort: 4000
           resources:
             requests:
-              memory: "256Mi" # Request 256 MB of memory
+              memory: "1Gi" # Request 256 MB of memory
             limits:
-              memory: "512Mi" # Limit to 512 MB of memory
+              memory: "1Gi" # Limit to 512 MB of memory
