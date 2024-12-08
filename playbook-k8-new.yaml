@@ -15,6 +15,6 @@
     # - name: Delete
       # command: export KUBECONFIG=~/.kube/config
     - name: Run
-      command: kubectl apply -f /tmp/SPE-Project-kub-hpa/deployment
+      command: kubectl apply -f /tmp/SPE-Project-kub-hpa/deployment --validate=false
     # - name: 
       # command: sudo minikube status
