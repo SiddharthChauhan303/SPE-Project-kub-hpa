@@ -16,7 +16,7 @@ const Header = ({ text , backPath}) => {
       </div>
     </div>
     </div>
-  );
+  ); 
 };
 
 export default Header;

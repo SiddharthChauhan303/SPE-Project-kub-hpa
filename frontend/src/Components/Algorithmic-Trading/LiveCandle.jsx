@@ -156,12 +156,12 @@ const LiveCandle = () => {
   return (
     <div>
       <Navbar />
-      <Header text="Live Candle Stick" />
+      <Header text="Live Candle Stick" backPath="/Home" />
       <div className="live-candle-container">
         <SideBar />
         <div className="main-content">
           <div className="dropdown-container">
-            <label htmlFor="csvSelect" className="dropdown-label">
+            <label htmlFor="csvSelect" className="dropdown-label"> 
               Select Dataset:
             </label>
             <select
