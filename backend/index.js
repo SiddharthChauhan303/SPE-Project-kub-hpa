@@ -12,7 +12,7 @@ const path = require('path');
 const app = express();
 const PORT = 3000;
  
-const corsOptions = {
+const corsOptions = { 
     origin:"http://192.168.49.2:30008",
     credentials:true
 }
