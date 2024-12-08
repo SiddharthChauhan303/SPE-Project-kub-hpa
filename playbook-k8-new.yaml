@@ -12,8 +12,8 @@
       git:
         repo: https://github.com/SiddharthChauhan303/SPE-Project-kub-hpa.git
         dest: /tmp/SPE-Project-kub-hpa
-    - name: Delete
-      command: export KUBECONFIG=~/.kube/config
+    # - name: Delete
+      # command: export KUBECONFIG=~/.kube/config
     - name: Run
       command: kubectl apply -f /tmp/SPE-Project-kub-hpa/deployment
     # - name: 
