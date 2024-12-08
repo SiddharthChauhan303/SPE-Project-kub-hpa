@@ -16,6 +16,6 @@
       # command: export KUBECONFIG=~/.kube/config
     - name: Apply Kubernetes Deployment
       ansible.builtin.command:
-        cmd: kubectl apply -f /tmp/SPE-Project-kub-hpa/deployment
+        cmd: kubectl apply -f /tmp/SPE-Project-kub-hpa/deployment --insecure-skip-tls-verify
     # - name: 
       # command: sudo minikube status
