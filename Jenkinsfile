@@ -14,13 +14,13 @@ pipeline {
         }
         stage("Stage 8: Ansible"){
             steps {
-                // sh '''
-                // sudo ansible-playbook -i inventory-k8 playbook-k8-new.yaml
-                // '''
                 sh '''
-                    sudo minikube kubectl -- config use-context minikube
-                    kubectl apply -f deployment --validate=false
+                sudo ansible-playbook -i inventory-k8 playbook-k8-new.yaml
                 '''
+                // sh '''
+                //     sudo minikube kubectl -- config use-context minikube
+                //     kubectl apply -f deployment --validate=false
+                // '''
 
             }
 
